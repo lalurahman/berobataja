@@ -15,10 +15,13 @@
                 </div>
                 <div class="member-info">
                   <h4 class="d-block">{{ $mitra->name }}</h4>
-                  <span class="d-block">Perawat</span>
+                  <span class="d-block text-capitalize">{{ $mitra->mitra_category->name }}</span>
                   <span class="d-block">Jl. Daeng tata, Perumahan Villa Permata Harapan, Blok B/16</span>
-                  {{-- <span class="badge bg-success text-white px-3 mt-2">BUKA</span> --}}
-                  <span class="badge bg-danger text-white px-3 mt-2">TUTUP</span>
+                  @if ($mitra->is_open == 1)
+                    <span class="badge bg-success text-white px-3 mt-2">BUKA</span>  
+                  @else
+                    <span class="badge bg-danger text-white px-3 mt-2">TUTUP</span>  
+                  @endif
                 </div>
               </div>
             </div>
@@ -40,12 +43,12 @@
                 <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
                 <div class="box">
                   {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Perawatan Luka</h5>
+                  <h5 class="text-capitalize">Perawatan Luka Ringan</h5>
                   {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
+                  <p><span>Perawatan luka sedang seperti luka ringan, tidak terlalu dalam</span></p>
                   <h6 class="text-danger"><del>Rp. 200.000,-</del></h6>
-                  <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pilih Layanan</a>
+                  <h4>Rp. 200.000,-</h4>
+                  <a href="https://api.whatsapp.com/send?phone=6285298457655&text=Saya%20ingin%20memesan%20layanan%20ini%20dari%20perawat%20{{ $mitra->name }}" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
                 </div>
               </div>
 
@@ -53,12 +56,12 @@
                 <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
                 <div class="box">
                   {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Pemasangan Infus yang baru</h5>
+                  <h5 class="text-capitalize">Perawatan Luka Sedang</h5>
                   {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
+                  <p><span>Terdiri dari beberapa luka</span></p>
                   <h6 class="text-danger"><del>Rp. 200.000,-</del></h6>
-                  <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pilih Layanan</a>
+                  <h4>Rp. 300.000,-</h4>
+                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
                 </div>
               </div>
 
@@ -71,7 +74,7 @@
                   <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
                   {{-- <h6 class="text-danger"><del>Rp. 200.000,-</del></h6> --}}
                   <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pilih Layanan</a>
+                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
                 </div>
               </div>
 
@@ -84,7 +87,7 @@
                   <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
                   <h6 class="text-danger"><del>Rp. 200.000,-</del></h6>
                   <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pilih Layanan</a>
+                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
                 </div>
               </div>
 
@@ -97,7 +100,7 @@
                   <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
                   {{-- <h6 class="text-danger"><del>Rp. 200.000,-</del></h6> --}}
                   <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pilih Layanan</a>
+                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
                 </div>
               </div>
             </div>

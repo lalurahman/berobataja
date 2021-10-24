@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('is_active')->default(0);
             $table->integer('is_open')->default(0);
             $table->string('roles')->default('customer');
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

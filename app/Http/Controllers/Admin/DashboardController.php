@@ -12,4 +12,9 @@ class DashboardController extends Controller
     {
         return view('pages.superadmin.dashboard');
     }
+
+    public function mitra()
+    {
+        return view('pages.mitra.dashboard');
+    }
 }

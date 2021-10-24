@@ -40,6 +40,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'login:superadmin']]
     Route::get('/user/customer', [UserController::class, 'customer'])->name('admin-user-customer');
 });
 
+Route::group(['prefix' => 'mitra', 'middleware' => ['auth', 'login:mitra']], function(){
+    Route::get('/', [DashboardController::class, 'mitra'])->name('mitra-dashboard');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/mitra', [HomeController::class, 'mitra'])->name('mitra');
+Route::get('/daftar-mitra', [HomeController::class, 'mitra'])->name('mitra');
 Route::get('/{username}', [HomeController::class, 'profil_mitra'])->name('profil-mitra');

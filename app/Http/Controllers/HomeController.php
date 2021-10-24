@@ -15,12 +15,15 @@ class HomeController extends Controller
 
     public function mitra()
     {
-        return view('pages.mitra');
+        $mitra = User::with('mitra_category')->where('roles', 'mitra')->get();
+        return view('pages.mitra', [
+            'mitra' => $mitra
+        ]);
     }
 
     public function profil_mitra($username)
     {
-        $mitra = User::where('username', $username)->firstOrFail();
+        $mitra = User::with('mitra_category')->where('username', $username)->firstOrFail();
         return view('pages.profil-mitra', [
             'mitra' => $mitra
         ]);
