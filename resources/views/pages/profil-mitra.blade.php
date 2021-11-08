@@ -38,71 +38,23 @@
             </div>
 
             <div class="row">
-
-              <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-up" data-aos-delay="200">
-                <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
-                <div class="box">
-                  {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Perawatan Luka Ringan</h5>
-                  {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Perawatan luka sedang seperti luka ringan, tidak terlalu dalam</span></p>
-                  <h6 class="text-danger"><del>Rp. 200.000,-</del></h6>
-                  <h4>Rp. 200.000,-</h4>
-                  <a href="https://api.whatsapp.com/send?phone=6285298457655&text=Saya%20ingin%20memesan%20layanan%20ini%20dari%20perawat%20{{ $mitra->name }}" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
+              @foreach ($layanan as $item)
+                <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-up" data-aos-delay="200">
+                  <img src="{{ asset('/images/mitra/layanan/' . $item->image) }}" class="img-fluid w-100" alt="">
+                  <div class="box">
+                    {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
+                    <h5 class="text-capitalize">{{ $item->name }}</h5>
+                    {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
+                    <p><span>{{ $item->detail }}</span></p>
+                    @if ($item->price_promo || $item->price_promo > 0)
+                    <h6 class="text-danger"><del>Rp. {{ number_format($item->price_promo) }},-</del></h6>
+                    @endif
+                    <h4>Rp. {{ number_format($item->price) }},-</h4>
+                    <a href="https://api.whatsapp.com/send?phone=6285298457655&text=Saya%20ingin%20memesan%20layanan%20{{ $item->name }}%20dari%20{{ $mitra->mitra_category->name }}%20{{ $mitra->name }}" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
+                  </div>
                 </div>
-              </div>
+              @endforeach
 
-              <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-up" data-aos-delay="400">
-                <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
-                <div class="box">
-                  {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Perawatan Luka Sedang</h5>
-                  {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Terdiri dari beberapa luka</span></p>
-                  <h6 class="text-danger"><del>Rp. 200.000,-</del></h6>
-                  <h4>Rp. 300.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-up" data-aos-delay="600">
-                <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
-                <div class="box">
-                  {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Penyewaan Alat Tabung oksigen</h5>
-                  {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
-                  {{-- <h6 class="text-danger"><del>Rp. 200.000,-</del></h6> --}}
-                  <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-up" data-aos-delay="800">
-                <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
-                <div class="box">
-                  {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Perawatan Luka</h5>
-                  {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
-                  <h6 class="text-danger"><del>Rp. 200.000,-</del></h6>
-                  <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-up" data-aos-delay="1000">
-                <img src="/fe/assets/img/gallery/gallery-1.jpg" class="img-fluid w-100" alt="">
-                <div class="box">
-                  {{-- <h4><sup>$</sup>19<span> / month</span></h4> --}}
-                  <h5 class="text-capitalize">Perawatan Luka</h5>
-                  {{-- <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
-                  <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quaerat!</span></p>
-                  {{-- <h6 class="text-danger"><del>Rp. 200.000,-</del></h6> --}}
-                  <h4>Rp. 120.000,-</h4>
-                  <a href="#" class="btn btn-buy btn-block px-5">Pesan Layanan</a>
-                </div>
-              </div>
             </div>
 
           </div>

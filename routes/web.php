@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'login:superadmin']]
 
 Route::group(['prefix' => 'mitra', 'middleware' => ['auth', 'login:mitra']], function(){
     Route::get('/', [DashboardController::class, 'mitra'])->name('mitra-dashboard');
+    Route::get('/layanan', [LayananController::class, 'index'])->name('mitra-layanan');
+    Route::post('/layanan', [LayananController::class, 'store'])->name('mitra-add-layanan');
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

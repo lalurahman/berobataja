@@ -35,7 +35,7 @@ class LoginController extends Controller
                 return redirect()->route('admin-dashboard');
             } else if (Auth::user()->roles == 'mitra') {
                 if (Auth::user()->is_active == 1) {
-                    return redirect()->route('admin-dashboard');
+                    return redirect()->route('mitra-dashboard');
                 } 
             } else {
                 return redirect()->route('home');

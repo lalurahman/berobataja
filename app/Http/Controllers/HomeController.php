@@ -24,8 +24,10 @@ class HomeController extends Controller
     public function profil_mitra($username)
     {
         $mitra = User::with('mitra_category')->where('username', $username)->firstOrFail();
+        $layanan = Layanan::with('user')->where('user_id', $mitra->id)->get();
         return view('pages.profil-mitra', [
-            'mitra' => $mitra
+            'mitra' => $mitra,
+            'layanan' => $layanan
         ]);
     }
 }

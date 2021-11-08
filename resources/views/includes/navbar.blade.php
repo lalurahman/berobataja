@@ -21,8 +21,12 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+      @guest
       <a href="{{ route('login') }}" class="appointment-btn ">Masuk</a>
+      @endguest
+      @auth
+      <a href="#" class="appointment-btn ">{{ Auth::user()->name }}</a>  
+      @endauth
 
     </div>
   </header><!-- End Header -->
