@@ -14,7 +14,7 @@
           <div class="container">
             <h2>Selamat Datang di <span>Berobataja.com</span></h2>
             <p>Layanan Kesehatan Terbaik Di Makassar. Cari dan temukan tenaga kesehatan yang siap melayani segala keluhan anda.</p>
-            <a href="{{ route('mitra') }}" class="btn-get-started">Cari Tenaga Medis</a>
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285242336105&text=Halo..%0ASaya%20ingin%20memesan%20layanan%20homecare%20dari%20berobataja.com" class="btn-get-started">Pesan Layanan Medis</a>
           </div>
         </div>
 
@@ -23,7 +23,7 @@
           <div class="container">
             <h2>Selamat Datang di <span>Berobataja.com</span></h2>
             <p>Layanan Kesehatan Terbaik Di Makassar. Cari dan temukan tenaga kesehatan yang siap melayani segala keluhan anda.</p>
-            <a href="{{ route('mitra') }}" class="btn-get-started">Cari Tenaga Medis</a>
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285242336105&text=Halo..%0ASaya%20ingin%20memesan%20layanan%20homecare%20dari%20berobataja.com" class="btn-get-started">Pesan Layanan Medis</a>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
           <div class="container">
             <h2>Selamat Datang di <span>Berobataja.com</span></h2>
             <p>Layanan Kesehatan Terbaik Di Makassar. Cari dan temukan tenaga kesehatan yang siap melayani segala keluhan anda.</p>
-            <a href="{{ route('mitra') }}" class="btn-get-started">Cari Tenaga Medis</a>
+            <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285242336105&text=Halo..%0ASaya%20ingin%20memesan%20layanan%20homecare%20dari%20berobataja.com" class="btn-get-started">Pesan Layanan Medis</a>
           </div>
         </div>
 
