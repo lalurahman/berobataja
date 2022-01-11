@@ -119,7 +119,7 @@
             <img src="/fe/assets/img/gallery-7.jpeg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>LAYANAN PEMASANGAN DAN PENGGANTIAN INFUS Pemasangan  infus merupakan sebuah metode pemberian obat yang dilakukan secara langsung melalui pembuluh darah. Terapi ini biasanya menjadi pilihan terbaik jika kondisi tubuh pasien sudah tidak memungkinkan minum obat secara oral (lewat mulut).</h3>
+            <p>LAYANAN PEMASANGAN DAN PENGGANTIAN INFUS Pemasangan  infus merupakan sebuah metode pemberian obat yang dilakukan secara langsung melalui pembuluh darah. Terapi ini biasanya menjadi pilihan terbaik jika kondisi tubuh pasien sudah tidak memungkinkan minum obat secara oral (lewat mulut).</p>
             <p class="fst-italic">
               Indikasi pemasangan infus :
             </p>
