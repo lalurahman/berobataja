@@ -106,6 +106,38 @@
       </div>
     </section><!-- End Cta Section -->
 
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Tentang Kami</h2>
+          <p>Layanan kesehatan Homecare percaya bahwa keamanan dan keahlian adalah hal terpenting dalam memilih layanan kesehatan untuk Anda.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="/fe/assets/img/departments-3.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Dapatkan Pelayanan pemasangan Infus di rumah. Dengan tenaga kesehatan profesional :</h3>
+            {{-- <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p> --}}
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Lulusan D3 Keperawatan dan/atau S1 Keperawatan + Ners.</li>
+              <li><i class="bi bi-check-circle"></i> Memiliki STR.</li>
+              <li><i class="bi bi-check-circle"></i> Memiliki pengalaman bekerja di Instansi kesehatan/ layanan homecare professional.</li>
+            </ul>
+            <p>
+              Jika Anda dan orang terkasih Anda membutuhkan layanan pemasangan Infus di rumah, bisa langsung menghubungi Layanan kesehatan Homecare untuk dapatkan pelayanan dari perawat yang merupakan 100% lulusan keperawatan yang telah tersertifikasi.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
@@ -160,13 +192,37 @@
           <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon"><i class="fas fa-heartbeat"></i></div>
             <h4 class="title"><a href="">Pemasangan Infus</a></h4>
-            <p class="description">Pemasangan infus merupakan sebuah metode pemberian obat yang dilakukan secara langsung melalui pembuluh darah.</p>
+            <p class="description">Tujuan utama pemberian terapi infus adalah memberikan sejumlah cairan ke dalam tubuh pasien sebagai pengganti cairan tubuh dan elektrolit yang hilang akibat penyakit atau prosedur medis tertentu.</p>
           </div>
           
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section>
+
+    <section id="gallery" class="gallery">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Dokumentasi saat proses pengobatan</p>
+        </div>
+
+        <div class="gallery-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-1.jpeg"><img src="/fe/assets/img/gallery-1.jpeg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-2.jpeg"><img src="/fe/assets/img/gallery-2.jpeg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-3.jpeg"><img src="/fe/assets/img/gallery-3.jpeg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-4.jpeg"><img src="/fe/assets/img/gallery-4.jpeg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-5.jpeg"><img src="/fe/assets/img/gallery-5.jpeg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-6.jpeg"><img src="/fe/assets/img/gallery-6.jpeg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="gallery-lightbox" href="/fe/assets/img/gallery-7.jpeg"><img src="/fe/assets/img/gallery-7.jpeg" class="img-fluid" alt=""></a></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>
     
     <!-- ======= Testimonials Section ======= -->
     {{-- <section id="testimonials" class="testimonials">
