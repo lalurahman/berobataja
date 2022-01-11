@@ -109,28 +109,39 @@
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
+        {{-- <div class="section-title">
           <h2>Tentang Kami</h2>
           <p>Layanan kesehatan Homecare percaya bahwa keamanan dan keahlian adalah hal terpenting dalam memilih layanan kesehatan untuk Anda.</p>
-        </div>
+        </div> --}}
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <img src="/fe/assets/img/departments-3.jpg" class="img-fluid" alt="">
+            <img src="/fe/assets/img/gallery-7.jpeg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Dapatkan Pelayanan pemasangan Infus di rumah. Dengan tenaga kesehatan profesional :</h3>
-            {{-- <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p> --}}
+            <h3>LAYANAN PEMASANGAN DAN PENGGANTIAN INFUS Pemasangan  infus merupakan sebuah metode pemberian obat yang dilakukan secara langsung melalui pembuluh darah. Terapi ini biasanya menjadi pilihan terbaik jika kondisi tubuh pasien sudah tidak memungkinkan minum obat secara oral (lewat mulut).</h3>
+            <p class="fst-italic">
+              Indikasi pemasangan infus :
+            </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Lulusan D3 Keperawatan dan/atau S1 Keperawatan + Ners.</li>
-              <li><i class="bi bi-check-circle"></i> Memiliki STR.</li>
-              <li><i class="bi bi-check-circle"></i> Memiliki pengalaman bekerja di Instansi kesehatan/ layanan homecare professional.</li>
+              <li><i class="bi bi-check-circle"></i> Dehidrasi parah</li>
+              <li><i class="bi bi-check-circle"></i> Keracunan makanan</li>
+              <li><i class="bi bi-check-circle"></i> Stroke</li>
+              <li><i class="bi bi-check-circle"></i> Serangan jantung</li>
+              <li><i class="bi bi-check-circle"></i> Gangguan sistem imun</li>
+              <li><i class="bi bi-check-circle"></i> Mengalami infeksi yang membuat pasien tidak responsif terhadap antibiotik oral</li>
+              <li><i class="bi bi-check-circle"></i> Menggunakan obat-obatan kemoterapi untuk menangani kanker</li>
+              <li><i class="bi bi-check-circle"></i> Penggunaan obat-obatan tertentu untuk mengatasi rasa sakit</li>
+              <li><i class="bi bi-check-circle"></i> Mengalami peradangan kronis</li>
+              <li><i class="bi bi-check-circle"></i> Diare</li>
+              <li><i class="bi bi-check-circle"></i> Nyeri ulu hati</li>
+              <li><i class="bi bi-check-circle"></i> Kondisi lemas dan anoreksia</li>
+              <li><i class="bi bi-check-circle"></i> Mual muntah</li>
             </ul>
             <p>
-              Jika Anda dan orang terkasih Anda membutuhkan layanan pemasangan Infus di rumah, bisa langsung menghubungi Layanan kesehatan Homecare untuk dapatkan pelayanan dari perawat yang merupakan 100% lulusan keperawatan yang telah tersertifikasi.
+              Pemberian terapi intervena (infus) tidak hanya terbatas pada kondisi di atas. Mungkin ada beberapa kondisi lain yang tidak disebutkan di atas, namun membutuhkan pemasangan infus
+            <br>
+            Pemberian infus harus dilakukan oleh dokter atau perawat professional . Pasalnya, dosis yang digunakan pada terapi infus tergantung pada berat badan, riwayat medis, obat-obatan yang sedang dikonsumsi, serta kondisi kesehatan pasien secara menyeluruh..
             </p>
           </div>
         </div>
