@@ -205,6 +205,12 @@
             <h4 class="title"><a href="">Pemasangan Infus</a></h4>
             <p class="description">Tujuan utama pemberian terapi infus adalah memberikan sejumlah cairan ke dalam tubuh pasien sebagai pengganti cairan tubuh dan elektrolit yang hilang akibat penyakit atau prosedur medis tertentu.</p>
           </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon"><i class="fas fa-heartbeat"></i></div>
+            <h4 class="title"><a href="">Perawatan Luka</a></h4>
+            <p class="description">Perawatan luka adalah tindakan merawat luka dengan upaya untuk mencegah infeksi, membunuh atau menghambat pertumbuhan kuman/bakteri pada kulit dan jaringan tubuh lainnya.</p>
+          </div>
           
         </div>
 
