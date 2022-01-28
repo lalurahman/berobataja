@@ -1,14 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\LayananController;
-use App\Http\Controllers\Admin\MitraCategoryController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\HomeController;
-use App\Models\Layanan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeAuthController;
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\HomeMitraController;
+use App\Http\Controllers\AdminMitraController;
+use App\Http\Controllers\AdminBannerController;
+use App\Http\Controllers\HomeLayananController;
+use App\Http\Controllers\AdminLayananController;
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AdminCategoryPostController;
+use App\Http\Controllers\AdminConfigurationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,31 +25,62 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// auth
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'login_process'])->name('login-process');
-Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('register-process');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// admin
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'login:superadmin']], function() {
-    Route::get('/', [DashboardController::class, 'index'])->name('admin-dashboard');
-    // mitra kategory
-    Route::get('/mitra-category', [MitraCategoryController::class, 'index'])->name('admin-mitra-category');
-    Route::post('/mitra-category', [MitraCategoryController::class, 'store'])->name('admin-add-mitra-category');
-    // user
-    Route::get('/user/admin', [UserController::class, 'admin'])->name('admin-user-admin');
-    Route::get('/user/mitra', [UserController::class, 'mitra'])->name('admin-user-mitra');
-    Route::get('/user/customer', [UserController::class, 'customer'])->name('admin-user-customer');
+Route::get('/', function () {
+    $data = ['content'  => 'home/home/index'];
+    return view('home/layouts/wrapper', $data);
 });
 
-Route::group(['prefix' => 'mitra', 'middleware' => ['auth', 'login:mitra']], function(){
-    Route::get('/', [DashboardController::class, 'mitra'])->name('mitra-dashboard');
-    Route::get('/layanan', [LayananController::class, 'index'])->name('mitra-layanan');
-    Route::post('/layanan', [LayananController::class, 'store'])->name('mitra-add-layanan');
+Route::get('/login', [HomeAuthController::class, 'index'])->name('login');
+Route::post('/authenticate', [HomeAuthController::class, 'authenticate']);
+
+Route::post('/registerStore', [HomeAuthController::class, 'store']);
+Route::get('/register', [HomeAuthController::class, 'register']);
+Route::get('/logout', [HomeAuthController::class, 'logout']);
+
+
+
+
+Route::prefix('/admin/auth')->group(function () {
+    Route::get('/', [AdminAuthController::class, 'index'])->middleware('guest');
+    Route::post('/login', [AdminAuthController::class, 'login']);
+
+    Route::get('/register', [AdminAuthController::class, 'register']);
+    Route::post('/doRegister', [AdminAuthController::class, 'doRegsiter']);
+    Route::get('/logout', [AdminAuthController::class, 'logout']);
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/daftar-mitra', [HomeController::class, 'mitra'])->name('mitra');
-Route::get('/{username}', [HomeController::class, 'profil_mitra'])->name('profil-mitra');
+
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get('/logout', [AdminAuthController::class, 'logout']);
+
+    Route::get('/dashboard', function () {
+        $data = [
+            'content' => 'admin/dashboard/index'
+        ];
+        return view('admin/layouts/wrapper', $data);
+    });
+
+    Route::resource('/user', AdminUserController::class);
+
+    Route::get('/konfigurasi', [AdminConfigurationController::class, 'index']);
+    Route::put('/konfigurasi/update', [AdminConfigurationController::class, 'update']);
+
+    Route::resource('/mitra', AdminMitraController::class);
+    Route::resource('/layanan', AdminLayananController::class);
+
+    Route::resource('/banner', AdminBannerController::class);
+
+
+    Route::get('/profil', [AdminProfileController::class, 'index']);
+
+
+    Route::prefix('/posts')->group(function () {
+        Route::resource('/post', AdminPostController::class);
+        Route::resource('/kategori', AdminCategoryPostController::class);
+    });
+});
+
+Route::prefix('/home')->group(function () {
+    Route::resource('/mitra', HomeMitraController::class);;
+    Route::resource('/layanan', HomeLayananController::class);;
+});

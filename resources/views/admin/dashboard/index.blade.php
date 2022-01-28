@@ -1,0 +1,1 @@
+  <h3><strong>Selamat Datang di Halman  {{auth()->user()->role.', '. auth()->user()->username}}</strong></h3>

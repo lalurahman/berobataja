@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Configuration;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,12 +16,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
         User::create([
-            'name' => 'Lalu Abdurrahman',
-            'username' => 'superadmin',
-            'email' => 'superadmin@gmail.com',
-            'password' => Hash::make('superadmin'),
-            'roles' => 'superadmin',
+            'username' => 'aswarkasim',
+            'email' => 'aswarkasim@gmail.com',
+            'role' => 'admin',
+            'password' => bcrypt('password')
+        ]);
+
+        User::create([
+            'username' => 'riski',
+            'email' => 'riski@gmail.com',
+            'role' => 'user',
+            'password' => bcrypt('password')
+        ]);
+
+        Configuration::create([
+            'app_name' => 'KTC FW'
         ]);
     }
 }

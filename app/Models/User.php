@@ -15,24 +15,18 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'username',
-        'phone',
-        'address',
-        'roles',
-        'is_mitra',
-        'mitra_category_id',
-        'is_active',
-        'is_open'
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    // ];
 
+    protected $guarded = [];
+    public $incrementing = false;
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -42,16 +36,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function mitra_category()
-    {
-        return $this->belongsTo(MitraCategory::class);
-    }
 }
