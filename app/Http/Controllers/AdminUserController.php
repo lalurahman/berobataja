@@ -33,6 +33,7 @@ class AdminUserController extends Controller
         return view('admin/layouts/wrapper', $data);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

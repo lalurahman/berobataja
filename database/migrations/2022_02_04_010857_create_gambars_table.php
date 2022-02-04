@@ -15,6 +15,7 @@ class CreateGambarsTable extends Migration
     {
         Schema::create('gambars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('name');
             $table->enum('type', ['sertifikat', 'portofolio']);
             $table->text('desc')->nullable();

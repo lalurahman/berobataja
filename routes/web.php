@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminLayananController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminCategoryPostController;
 use App\Http\Controllers\AdminConfigurationController;
+use App\Http\Controllers\AdminGambarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,11 +68,13 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     Route::resource('/mitra', AdminMitraController::class);
     Route::resource('/layanan', AdminLayananController::class);
+    Route::resource('/gambar', AdminGambarController::class);
 
     Route::resource('/banner', AdminBannerController::class);
 
 
     Route::get('/profil', [AdminProfileController::class, 'index']);
+    Route::put('/profil/update/{id}', [AdminProfileController::class, 'update']);
 
 
     Route::prefix('/posts')->group(function () {
