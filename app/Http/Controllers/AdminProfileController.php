@@ -21,6 +21,8 @@ class AdminProfileController extends Controller
             ];
             Mitra::create($data);
         }
+        $mitra = Mitra::where('user_id', $user_id)->first();
+
         $sertifikat = Gambar::where('type', 'sertifikat')->where('user_id', $user_id)->paginate(10);
         $data = [
             'title'   => 'Manajemen Profile',

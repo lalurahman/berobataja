@@ -12,17 +12,17 @@
 								<div class="image" style="height:150px">
 									<img src="/img/user.jpg" alt="" />
 								</div>
-								<div class="author-name">Dr. Jonathon Deo</div>
-								<div class="designation">Perawat</div>
+								<div class="author-name">{{$mitra->fullname}}</div>
+								<div class="designation">{{$mitra->jenis}}</div>
 								
 							</div>
 						</div>
 						
 						<h4>Contact</h4>
 						<ul class="info-list">
-							<li class="clearfix">Alamat:<span>3745  Viking Drive, Athens NYC, 45701</span></li>
-							<li class="clearfix">Email:<span>doctor@yoursite.com</span></li>
-							<li class="clearfix">Nomor HP:<span>+1 (800) 123-4567</span></li>
+							<li class="clearfix">Alamat:<span>{{$mitra->alamat}}</span></li>
+							<li class="clearfix">Email:<span>{{$mitra->user->email}}</span></li>
+							<li class="clearfix">Nomor HP:<span>{{$mitra->nohp}}</span></li>
 						</ul>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 				<div class="content-column col-lg-7 col-md-12 col-sm-12">
 					<div class="inner-column">
 						<h2>About</h2>
-						<p>Replenish him third creature and meat most of the blessed best of the void a fruit gathered. Replenish him third creature and meat most of the blessed best of the void a fruit gathered.</p>
+						<p>{{$mitra->about}}</p>
 						<div class="image">
 							<div class="">
 								

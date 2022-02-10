@@ -6,18 +6,15 @@
 				<!-- Content Column -->
 				<div class="content-column col-lg-7 col-md-12 col-sm-12">
 					<div class="inner-column">
-						<h2>Pemasangan Infus</h2>
+						<h2>{{$layanan->name}}</h2>
 						
 						<div class="image">
 							<img src="images/resource/department-9.jpg" alt="" />
 						</div>
-						
-						<p>Replenish him third creature and meat most of the blessed best of the void a fruit gathered. Replenish him third creature and meat most of the blessed best of the void a fruit gathered.</p>
-						<p>Technically, a gastrologist is someone who specializes in gastrology. That could mean caring for the stomach with medicine. It could also mean caring for the stomach with food.</p>
-						<p>Gastrology may have been a medical term in the early 1900s, judging by journals from around that time. If so, the word was long ago replaced by gastroenterology. You won't find doctors who describe themselves as gastrologists today -- at least not in the U.S.</p>
-					</div>
+							{{$layanan->desc}}
+						</div>
 				</div>
-				
+			{{-- @dd($layanan) --}}
 				<!-- Info Column -->
 				<div class="info-column col-lg-5 col-md-12 col-sm-12">
 					<div class="inner-column">
@@ -27,19 +24,22 @@
 								<div class="image" style="height:150px">
 									<img src="/img/user.jpg" alt="" />
 								</div>
-								<div class="author-name">Dr. Jonathon Deo</div>
-								<div class="designation">Perawat</div>
+								<div class="author-name">Nama</div>
+								<div class="designation">{{$layanan->jenis}}</div>
 							</div>
 						</div>
 						
 						<h4>
 							<small class="text-danger">
-								<del>IDR. 200.000,-</del>
+								<del>{{format_rupiah($layanan->price_disc)}}-</del>
 							</small> 
 							 <br> 
-							 Harga : IDR. 130.000,- 
+							 Harga : {{format_rupiah($layanan->price_real)}} 
 						</h4>
-						<button class="btn btn-success">Pesan Layanan</button>
+						<a href="https://wa.me/085298730727?
+						text=Deskripsi Pemesanan : 
+						 Nama Laynan : {{$layanan->name}} %0a
+						 oleh : {{$layanan->mitra->fullname}}" target="blank" class="btn btn-success">Pesan Layanan</a>
 					</div>
 				</div>
 				

@@ -10,4 +10,9 @@ class Layanan extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    function mitra()
+    {
+        return $this->belongsTo(Mitra::class);
+    }
 }

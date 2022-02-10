@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Layanan;
 use Illuminate\Http\Request;
 
 class HomeLayananController extends Controller
@@ -14,7 +15,11 @@ class HomeLayananController extends Controller
     public function index()
     {
         //
-        $data = ['content'  => 'home/layanan/index'];
+        $layanan = Layanan::paginate(10);
+        $data = [
+            'layanan'   => $layanan,
+            'content'  => 'home/layanan/index'
+        ];
         return view('home/layouts/wrapper', $data);
     }
 
@@ -48,7 +53,10 @@ class HomeLayananController extends Controller
     public function show($id)
     {
         //
-        $data = ['content'  => 'home/layanan/detail'];
+        $data = [
+            'layanan'  => Layanan::with('mitra')->find($id),
+            'content'  => 'home/layanan/detail'
+        ];
         return view('home/layouts/wrapper', $data);
     }
 

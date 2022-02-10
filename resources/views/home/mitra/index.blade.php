@@ -1,49 +1,40 @@
 <div class="container">
-      <div class="row">
-
-            <section class="doctor-page-section">
-            <div class="auto-container">
-                <!-- Sec Title -->
-                <div class="sec-title centered">
-                  <h2>Perawat Terbaik Kami</h2>
-                  <div class="text">Replenish him third creature and meat most of the blessed <br> void a fruit gathered.</div>
-                </div>
-                <div class="row clearfix">
-
-        @for ($i = 0; $i < 10 ; $i++)
-            
-      <!-- Doctor Page Section -->
-
-				
-				<!-- Team Block -->
-				<div class="team-block style-three col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box">
-						<a href="/home/mitra/1">
-							<div class="image" style="max-height: 300px">
-								<img src="/img/user.jpg" alt="" />
-								<div class="overlay-box">
-									<div class="content">
-										<h4 class="text-white">Dr. Juan Annato</h4>
-										<div class="designation">Perawat</div>
-										<!-- <a href="#" class="btn btn-primary btn-block w-100">pesan</a> -->
-									</div>
+	<div class="row">
+			<div class="sec-title centered">
+				<h2>Pilihan Tenanga {{request('role')}}</h2>
+				<p>Pilih dari mitra terbaik kami</p>
+			</div>
+	</div>
+	{{-- @dd($user) --}}
+	@if (count($mitra) <= 0)
+		<div class="alert alert-danger">	Belum ada mitra</div>
+	@else
+			{{-- @dd($mitra) --}}
+	<div class="row">
+		<!-- Team Block -->
+		@foreach ($mitra as $item)
+		<div class="col-md-4">
+			<div class="team-block style-three">
+				<div class="inner-box">
+					<a href="/home/mitra/{{$item->id}}">
+						<div class="image" style="max-height: 300px">
+							<img src="/{{$item->foto != null ? $item->foto : 'img/user.jpg'}}" alt="" />
+							<div class="overlay-box">
+								<div class="content">
+									<h4 class="text-white">{{$item->fullname}}</h4>
+									<div class="designation">{{$item->jenis}}</div>
+									<!-- <a href="#" class="btn btn-primary btn-block w-100">pesan</a> -->
 								</div>
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
 				</div>
-				
-			
-		
-				
-
-	<!-- End Doctor Page Section -->
-        @endfor
-        			</div>
-	
-			
+			</div>
 		</div>
-	</section>
+		@endforeach
 
-  </div>
+	@endif
+
+
+ </div>
 </div>
