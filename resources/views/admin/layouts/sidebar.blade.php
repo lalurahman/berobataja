@@ -93,6 +93,7 @@
           </li>
           </li>
 
+
           <li class="nav-item">
             <a href="/admin/profil" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
@@ -100,6 +101,31 @@
                 Profil
               </p>
             </a>
+          </li>
+
+          <li class="nav-item {{Request::is('admin/dokumen*') ? 'menu-open' : ''}}">
+            <a href="#" class="nav-link {{Request::is('admin/dokumen*') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-archive"></i>
+              <p>
+                Dokumen
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/dokumen?type=ijazah" class="nav-link {{request('type')=='ijazah' ? 'child-active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ijazah</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/dokumen?type=sertifikat" class="nav-link {{request('type')=='sertifikat' ? 'child-active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sertifikat</p>
+                </a>
+              </li>
+
+            </ul>
           </li>
 
            <li class="nav-item">

@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminLayananController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminCategoryPostController;
 use App\Http\Controllers\AdminConfigurationController;
+use App\Http\Controllers\AdminDokumenController;
 use App\Http\Controllers\AdminGambarController;
 
 /*
@@ -70,6 +71,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/layanan', AdminLayananController::class);
     Route::resource('/gambar', AdminGambarController::class);
 
+    Route::resource('/dokumen', AdminDokumenController::class);
     Route::resource('/banner', AdminBannerController::class);
 
 
