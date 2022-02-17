@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Layanan;
+use App\Models\Mou;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class HomeLayananController extends Controller
+class AdminMouController extends Controller
 {
+    //
     /**
      * Display a listing of the resource.
      *
@@ -15,25 +17,13 @@ class HomeLayananController extends Controller
     public function index()
     {
         //
-
-        $layanan = Layanan::paginate(10);
-        $value = request('value');
-        $filter = request('filter');
-        if ($filter && $value) {
-            if ($filter == 'name') {
-                $layanan = Layanan::where('name', 'like', '%' . $value . '%')->latest()->paginate(10);
-            } else if ($filter == 'kota') {
-                $layanan = Layanan::whereHas('mitra', function ($query) {
-                    //ubah variable makassar
-                    $query->where('mitras.kota', request('value'));
-                })->with('mitra')->paginate(10);
-            }
-        }
+        $user_id = auth()->user()->id;
         $data = [
-            'layanan'   => $layanan,
-            'content'  => 'home/layanan/index'
+            'title'   => 'Manajemen Mou',
+            'mou' => Mou::paginate('10'),
+            'content' => 'admin/mou/index'
         ];
-        return view('home/layouts/wrapper', $data);
+        return view('admin/layouts/wrapper', $data);
     }
 
     /**
@@ -44,6 +34,11 @@ class HomeLayananController extends Controller
     public function create()
     {
         //
+        $data = [
+            'title'   => 'Manajemen Mou',
+            'content' => 'admin/mou/add'
+        ];
+        return view('admin/layouts/wrapper', $data);
     }
 
     /**
@@ -55,6 +50,13 @@ class HomeLayananController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->validate([
+            'topic'       => 'required|min:3',
+            'desc'        => 'required',
+        ]);
+        Mou::create($data);
+        Alert::success('Sukses', 'Mou telah ditambahkan');
+        return redirect('/admin/mou');
     }
 
     /**
@@ -66,11 +68,7 @@ class HomeLayananController extends Controller
     public function show($id)
     {
         //
-        $data = [
-            'layanan'  => Layanan::with('mitra')->find($id),
-            'content'  => 'home/layanan/detail'
-        ];
-        return view('home/layouts/wrapper', $data);
+
     }
 
     /**
@@ -82,6 +80,12 @@ class HomeLayananController extends Controller
     public function edit($id)
     {
         //
+        $data = [
+            'title'   => 'Manajemen Mou',
+            'mou' => Mou::find($id),
+            'content' => 'admin/mou/add'
+        ];
+        return view('admin/layouts/wrapper', $data);
     }
 
     /**
@@ -94,6 +98,14 @@ class HomeLayananController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $mou = Mou::find($id);
+        $data = $request->validate([
+            'topic'       => 'required|min:3',
+            'desc'        => 'required',
+        ]);
+        $mou->save($data);
+        Alert::success('Sukses', 'Mou telah diubah');
+        return redirect('/admin/mou');
     }
 
     /**
@@ -105,5 +117,9 @@ class HomeLayananController extends Controller
     public function destroy($id)
     {
         //
+        $mou = Mou::find($id);
+        $mou->delete();
+        Alert::success('Sukses', 'Mou telah dihapus');
+        return redirect('/admin/mou');
     }
 }

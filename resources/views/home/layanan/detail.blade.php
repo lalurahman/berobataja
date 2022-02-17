@@ -31,10 +31,10 @@
 						
 						<h4>
 							<small class="text-danger">
-								<del>{{format_rupiah($layanan->price_disc)}}-</del>
+								<del>{{format_rupiah($layanan->price_real)}}-</del>
 							</small> 
 							 <br> 
-							 Harga : {{format_rupiah($layanan->price_real)}} 
+							 Harga : {{format_rupiah($layanan->price_dic)}} 
 						</h4>
 						<a href="https://wa.me/085298730727?
 						text=Deskripsi Pemesanan : 

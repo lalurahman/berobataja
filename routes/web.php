@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminCategoryPostController;
 use App\Http\Controllers\AdminConfigurationController;
 use App\Http\Controllers\AdminDokumenController;
 use App\Http\Controllers\AdminGambarController;
+use App\Http\Controllers\AdminMouController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,16 +68,19 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/konfigurasi', [AdminConfigurationController::class, 'index']);
     Route::put('/konfigurasi/update', [AdminConfigurationController::class, 'update']);
 
+    Route::get('/mitra/is_active', [AdminMitraController::class, 'is_active']);
     Route::resource('/mitra', AdminMitraController::class);
     Route::resource('/layanan', AdminLayananController::class);
     Route::resource('/gambar', AdminGambarController::class);
 
     Route::resource('/dokumen', AdminDokumenController::class);
     Route::resource('/banner', AdminBannerController::class);
+    Route::resource('/mou', AdminMouController::class);
 
 
     Route::get('/profil', [AdminProfileController::class, 'index']);
     Route::put('/profil/update/{id}', [AdminProfileController::class, 'update']);
+    Route::get('/profil/is_mou_mitra', [AdminProfileController::class, 'is_mou_mitra']);
 
 
     Route::prefix('/posts')->group(function () {

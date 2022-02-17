@@ -11,6 +11,11 @@ class Layanan extends Model
 
     protected $guarded = ['id'];
 
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     function mitra()
     {
         return $this->belongsTo(Mitra::class);

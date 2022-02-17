@@ -16,13 +16,15 @@ class CreateMitrasTable extends Migration
         Schema::create('mitras', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('fullname');
-            $table->string('alamat');
-            $table->string('nohp');
-            $table->string('foto');
-            $table->text('about');
-            $table->enum('jenis', ['Perawat', 'Dokter', 'Non-medis']);
-            $table->enum('gender', ['Laki-laki', 'Perempuan']);
+            $table->foreignId('mitra_id');
+            $table->string('fullname')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('nohp')->nullable();
+            $table->string('foto')->nullable();
+            $table->text('about')->nullable();
+            $table->enum('jenis', ['Perawat', 'Dokter', 'Non-medis'])->nullable();
+            $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable();
             $table->timestamps();
         });
     }

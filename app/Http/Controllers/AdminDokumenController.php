@@ -16,7 +16,8 @@ class AdminDokumenController extends Controller
     public function index()
     {
         //
-        $dokumen = Dokumen::paginate(10);
+        $type = request('type');
+        $dokumen = Dokumen::where('type', $type)->paginate(10);
         $data = [
             'title'   => 'Manajemen Dokumen',
             'dokumen' => $dokumen,

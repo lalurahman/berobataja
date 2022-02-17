@@ -1,11 +1,11 @@
 
-
+  
   <section class="department-page-section">
 		<div class="auto-container">
 			<div class="sec-title centered">
-				<h2>Pilihan Layanan</h2>
-				
+        <h2>Pilihan Layanan</h2>			
 			</div>
+      @include('/home/layouts/filter')
 			<div class="row clearfix">
 				
 				<!-- Department Block -->

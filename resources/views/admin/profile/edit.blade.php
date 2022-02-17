@@ -27,7 +27,7 @@
           @csrf
           <div class="form-group">
             <label for="">Nama Lengkap</label>
-            <input type="text" value="{{$mitra->fullname}}" name="fullname" class="form-control">
+            <input type="text" value="{{$mitra->fullname}}" name="fullname" required class="form-control">
           </div>
 
           <div class="form-group">
@@ -41,17 +41,22 @@
 
           <div class="form-group">
             <label for="">Alamat</label>
-            <input type="text" value="{{$mitra->alamat}}" name="alamat" placeholder="Alamat" class="form-control">
+            <input type="text" value="{{$mitra->alamat}}" name="alamat" placeholder="Alamat" required class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="">Kota</label>
+            <input type="text" value="{{$mitra->kota}}" name="kota" placeholder="Kota" required class="form-control">
           </div>
 
            <div class="form-group">
             <label for="">No Hp</label>
-            <input type="text" value="{{$mitra->nohp}}" name="nohp" placeholder="nohp" class="form-control">
+            <input type="text" value="{{$mitra->nohp}}" name="nohp" placeholder="nohp" required class="form-control">
           </div>
 
           <div class="form-group">
             <label for="">About</label>
-            <input type="text" value="{{$mitra->about}}" name="about" placeholder="Tentang" class="form-control">
+            <input type="text" value="{{$mitra->about}}" name="about" placeholder="Tentang" required class="form-control">
           </div>
 
            <div class="modal-footer justify-content-between">

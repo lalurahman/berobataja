@@ -7,7 +7,7 @@
         <h4 class="text-main"><b>Data Mitra</b></h4>
         <hr>
 
-          @include('/admin/profile/edit')
+          {{-- @include('/admin/profile/edit') --}}
 
         <div class="pb-2">
           <div for="" class="text-primary">Nama Lengkap</div>
@@ -23,11 +23,6 @@
           <div for="" class="text-primary">Alamat</div>
           <h5>{{isset($mitra) ? $mitra->alamat : '-'}}</h5> </h5>
         </div>
-
-         <div class="pb-2">
-          <div for="" class="text-primary">Kota</div>
-          <h5>{{isset($mitra) ? $mitra->kota : '-'}}</h5> </h5>
-        </div>
       
          <div class="pb-2">
           <div for="" class="text-primary">About</div>
@@ -40,12 +35,12 @@
     </div>
   </div>
 
-   {{-- <div class="col-md-6">
+   <div class="col-md-6">
     <div class="p-1 card">
       <div class="card-body">
 
-         <h4 class="text-main"><b>Sertifikat</b></h4>
-        @include('/admin/profile/sertifikat')
+         <h4 class="text-main"><b>Dokumen</b></h4>
+        {{-- @include('/admin/profile/sertifikat') --}}
 
         <table class="table">
           <tr>
@@ -53,7 +48,7 @@
             <td>Title</td>
             <td width="50px">Action</td>
           </tr>
-          @foreach ($sertifikat as $item)
+          @foreach ($dokumen as $item)
           <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$item->name}}</td>
@@ -63,12 +58,11 @@
         </table>
 
         <div class="float-right">
-          {{$sertifikat->links()}}
+          {{$dokumen->links()}}
         </div>
 
       </div>
     </div>
-  </div> --}}
+  </div>
 </div>
-
 

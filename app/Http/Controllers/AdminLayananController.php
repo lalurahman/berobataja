@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use App\Models\Configuration;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -17,9 +18,10 @@ class AdminLayananController extends Controller
     public function index()
     {
         //
+        $user_id = auth()->user()->id;
         $data = [
             'title'   => 'Manajemen Layanan',
-            'layanan' => Layanan::paginate('10'),
+            'layanan' => Layanan::where('user_id', $user_id)->paginate('10'),
             'content' => 'admin/layanan/index'
         ];
         return view('admin/layouts/wrapper', $data);
@@ -49,13 +51,16 @@ class AdminLayananController extends Controller
     public function store(Request $request)
     {
         //
+        $konfigurasi = Configuration::find('1');
         $data = $request->validate([
             'name'              => 'required|min:3',
-            'price_real'              => 'required',
-            'price_disc'              => 'required',
+            'price_real'        => 'required',
+            'price_disc'        => 'required',
             'desc'              => 'required',
         ]);
         $data['user_id']    = auth()->user()->id;
+        $data['price_real'] = $request->price_real + $konfigurasi->up_harga;
+        $data['price_disc'] = $request->price_disc + $konfigurasi->up_harga;
         Layanan::create($data);
         Alert::success('Sukses', 'Layanan telah ditambahkan');
         return redirect('/admin/layanan');

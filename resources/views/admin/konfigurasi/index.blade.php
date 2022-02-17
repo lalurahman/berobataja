@@ -17,6 +17,17 @@
              @enderror
           </div>
 
+
+           <div class="form-group">
+            <label for="">Up Harga</label>
+            <input type="text" class="form-control  @error('up_harga') is-invalid @enderror"  name="up_harga"  value="{{isset($konfigurasi) ? $konfigurasi->up_harga : old('up_harga')}}" placeholder="Nama">
+             @error('up_harga')
+                <div class="invalid-feedback">
+                  {{$message}}
+                </div>
+             @enderror
+          </div>
+
        
 
           <a href="/admin/konfigurasi" class="btn btn-info "><i class="fa fa-arrow-left"></i> Kembali</a>

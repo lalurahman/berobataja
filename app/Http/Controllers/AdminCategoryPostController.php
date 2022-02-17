@@ -125,7 +125,7 @@ class AdminCategoryPostController extends Controller
     {
         //
         DB::table('kategoris')->delete($id);
-        Alert::success('success', 'Kateogri telah dihapus');
+        Alert::success('success', 'Kategori telah dihapus');
         return redirect('/admin/posts/kategori');
     }
 }

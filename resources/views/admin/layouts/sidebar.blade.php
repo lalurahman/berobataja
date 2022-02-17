@@ -25,7 +25,8 @@
             </a>
           </li>
 
-           <li class="nav-item">
+          @if (auth()->user()->role == 'admin')
+          <li class="nav-item">
             <a href="/admin/mitra" class="nav-link {{Request::is('admin/mitra*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-list"></i>
               <p>
@@ -33,10 +34,11 @@
               </p>
             </a>
           </li>
+          @endif
 
            <li class="nav-item">
             <a href="/admin/layanan" class="nav-link {{Request::is('admin/layanan*') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-list"></i>
+            <i class="nav-icon fas fa-ambulance"></i>
               <p>
                 Layanan
               </p>
@@ -44,6 +46,7 @@
           </li>
           
 
+           @if (auth()->user()->role == 'admin')
           <li class="nav-item {{Request::is('admin/posts*') ? 'menu-open' : ''}}">
             <a href="#" class="nav-link {{Request::is('admin/posts*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-newspaper"></i>
@@ -93,6 +96,9 @@
           </li>
           </li>
 
+            @endif
+          
+
 
           <li class="nav-item">
             <a href="/admin/profil" class="nav-link">
@@ -103,6 +109,7 @@
             </a>
           </li>
 
+           @if (auth()->user()->role == 'mitra')
           <li class="nav-item {{Request::is('admin/dokumen*') ? 'menu-open' : ''}}">
             <a href="#" class="nav-link {{Request::is('admin/dokumen*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-archive"></i>
@@ -128,6 +135,19 @@
             </ul>
           </li>
 
+           @endif
+
+           @if (auth()->user()->role == 'admin')
+
+            <li class="nav-item">
+            <a href="/admin/mou" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                MoU
+              </p>
+            </a>
+          </li>
+
            <li class="nav-item">
             <a href="/admin/banner" class="nav-link">
               <i class="nav-icon fas fa-image"></i>
@@ -144,6 +164,7 @@
               </p>
             </a>
           </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

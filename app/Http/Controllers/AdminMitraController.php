@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokumen;
 use App\Models\Mitra;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class AdminMitraController extends Controller
         $cari = request('cari');
 
         if ($cari) {
-            $mitra = Mitra::where('name', 'like', '%' . $cari . '%')->latest()->paginate(10);
+            $mitra = Mitra::where('fullname', 'like', '%' . $cari . '%')->latest()->paginate(10);
         } else {
             $mitra = Mitra::latest()->paginate(10);
         }
@@ -61,6 +62,15 @@ class AdminMitraController extends Controller
     public function show($id)
     {
         //
+        $mitra = Mitra::find($id);
+        $dokumen = Dokumen::where('user_id', $mitra->user_id)->paginate(6);
+        $data = [
+            'title'     => 'Manajemen Mitra',
+            'mitra'     => $mitra,
+            'dokumen'     => $dokumen,
+            'content'   => 'admin/mitra/detail'
+        ];
+        return view('admin/layouts/wrapper', $data);
     }
 
     /**
@@ -95,5 +105,17 @@ class AdminMitraController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function is_active()
+    {
+        $boolean = request('boolean');
+        $mitra_id = request('mitra_id');
+        $mitra = Mitra::find($mitra_id);
+        $data = [
+            'is_active' => $boolean
+        ];
+        $mitra->update($data);
+        return redirect('/admin/mitra');
     }
 }
