@@ -21,14 +21,18 @@ class DatabaseSeeder extends Seeder
             'username' => 'aswarkasim',
             'email' => 'aswarkasim@gmail.com',
             'role' => 'admin',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
+            'is_active' => 0,
+            'mitra_id' => 1,
         ]);
 
         User::create([
             'username' => 'riski',
             'email' => 'riski@gmail.com',
             'role' => 'user',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
+            'is_active' => 0,
+            'mitra_id' => 1,
         ]);
 
         Configuration::create([
