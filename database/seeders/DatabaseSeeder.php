@@ -36,7 +36,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Configuration::create([
-            'app_name' => 'KTC FW'
+            'app_name' => 'KTC FW',
+            'up_harga' => '0',
         ]);
     }
 }
