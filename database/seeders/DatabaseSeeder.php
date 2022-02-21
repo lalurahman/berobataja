@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'password' => bcrypt('password'),
             'is_active' => 0,
-            'mitra_id' => 1,
         ]);
 
         User::create([
@@ -32,7 +31,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
             'password' => bcrypt('password'),
             'is_active' => 0,
-            'mitra_id' => 1,
         ]);
 
         Configuration::create([
