@@ -39,7 +39,7 @@
 						<a href="https://wa.me/085298730727?
 						text=Deskripsi Pemesanan : 
 						 Nama Laynan : {{$layanan->name}} %0a
-						 oleh : {{$layanan->mitra->fullname}}" target="blank" class="btn btn-success">Pesan Layanan</a>
+						 oleh : {{$layanan->user->fullname}}" target="blank" class="btn btn-success">Pesan Layanan</a>
 					</div>
 				</div>
 				

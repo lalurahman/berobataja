@@ -25,7 +25,7 @@
             </a>
           </li>
 
-          @if (auth()->user()->role == 'admin')
+          {{-- @if (auth()->user()->role == 'admin')
           <li class="nav-item">
             <a href="/admin/mitra" class="nav-link {{Request::is('admin/mitra*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-list"></i>
@@ -34,13 +34,22 @@
               </p>
             </a>
           </li>
-          @endif
+          @endif --}}
 
            <li class="nav-item">
             <a href="/admin/layanan" class="nav-link {{Request::is('admin/layanan*') ? 'active' : ''}}">
             <i class="nav-icon fas fa-ambulance"></i>
               <p>
                 Layanan
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="/admin/kategori" class="nav-link {{Request::is('admin/kategori*') ? 'active' : ''}}">
+            <i class="nav-icon fas fa-list"></i>
+              <p>
+                Kategori
               </p>
             </a>
           </li>
@@ -81,13 +90,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/user" class="nav-link {{Request::is('admin/user*') ? 'child-active' : ''}}">
+                <a href="/admin/user?role=mitra" class="nav-link {{request('role') == 'mitra' ? 'child-active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>User</p>
+                  <p>Mitra</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/user?role=admin" class="nav-link {{request('role') == 'admin' ? 'child-active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Admin</p>
                 </a>
@@ -101,7 +110,7 @@
 
 
           <li class="nav-item">
-            <a href="/admin/profil" class="nav-link">
+            <a href="/admin/profil" class="nav-link {{Request::is('admin/profil') ? 'active' : ''}}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profil
@@ -140,7 +149,7 @@
            @if (auth()->user()->role == 'admin')
 
             <li class="nav-item">
-            <a href="/admin/mou" class="nav-link">
+            <a href="/admin/mou" class="nav-link {{Request::is('admin/mou*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-file"></i>
               <p>
                 MoU
@@ -149,7 +158,7 @@
           </li>
 
            <li class="nav-item">
-            <a href="/admin/banner" class="nav-link">
+            <a href="/admin/banner" class="nav-link {{Request::is('admin/banner*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-image"></i>
               <p>
                 Banner
@@ -157,7 +166,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/konfigurasi" class="nav-link">
+            <a href="/admin/konfigurasi" class="nav-link {{Request::is('admin/konfigurasi*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
                 Konfigurasi

@@ -16,21 +16,12 @@ class AdminProfileController extends Controller
     function index()
     {
         $user_id = auth()->user()->id;
-        $mitra = Mitra::where('user_id', $user_id)->first();
+        $user = User::find($user_id);
 
         if (auth()->user()->is_mou_mitra == true) {
-            if ($mitra == null) {
-                $data = [
-                    'user_id' => $user_id,
-                    'is_active' => 0
-                ];
-                Mitra::create($data);
-            }
-            $mitra = Mitra::where('user_id', $user_id)->first();
-
             $data = [
                 'title'   => 'Manajemen Profile',
-                'mitra' => $mitra,
+                'user' => $user,
                 'content' => 'admin/profile/index'
             ];
             return view('admin/layouts/wrapper', $data);
@@ -47,7 +38,7 @@ class AdminProfileController extends Controller
     function update(Request $request, $id)
     {
         // $user_id = ;
-        $mitra = Mitra::where('user_id', $id)->first();
+        $user = User::find($id);
         // print_r($request);
         $data = $request->validate([
             'fullname'        => 'required|min:3',
@@ -59,7 +50,7 @@ class AdminProfileController extends Controller
         ]);
 
 
-        $mitra->update($data);
+        $user->update($data);
         Alert::success('success', 'User telah diedit');
         return redirect('/admin/profil');
     }

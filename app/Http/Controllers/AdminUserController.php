@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Mitra;
+use App\Models\Dokumen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,12 +20,14 @@ class AdminUserController extends Controller
     public function index()
     {
         //
+
+        $role = request('role');
         $cari = request('cari');
 
         if ($cari) {
-            $user = User::where('name', 'like', '%' . $cari . '%')->latest()->paginate(10);
+            $user = User::where('role', $role)->where('email', 'like', '%' . $cari . '%')->latest()->paginate(10);
         } else {
-            $user = User::latest()->paginate(10);
+            $user = User::where('role', $role)->latest()->paginate(10);
         }
         $data = [
             'title'   => 'Manajemen User',
@@ -83,6 +87,15 @@ class AdminUserController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+        $dokumen = Dokumen::where('user_id', $user->user_id)->paginate(6);
+        $data = [
+            'title'     => 'Manajemen Mitra',
+            'user'     => $user,
+            'dokumen'     => $dokumen,
+            'content'   => 'admin/user/detail'
+        ];
+        return view('admin/layouts/wrapper', $data);
     }
 
     /**
@@ -143,5 +156,17 @@ class AdminUserController extends Controller
         DB::table('users')->delete($id);
         Alert::success('success', 'User telah dihapus');
         return redirect('/admin/user');
+    }
+
+    function is_active()
+    {
+        $boolean = request('boolean');
+        $user_id = request('user_id');
+        $user = User::find($user_id);
+        $data = [
+            'is_active' => $boolean
+        ];
+        $user->update($data);
+        return redirect('/admin/user?role=mitra');
     }
 }

@@ -19,12 +19,18 @@ class AdminLayananController extends Controller
     {
         //
         $user_id = auth()->user()->id;
-        $data = [
-            'title'   => 'Manajemen Layanan',
-            'layanan' => Layanan::where('user_id', $user_id)->paginate('10'),
-            'content' => 'admin/layanan/index'
-        ];
-        return view('admin/layouts/wrapper', $data);
+
+        if (auth()->user()->is_active == 1) {
+            $data = [
+                'title'   => 'Manajemen Layanan',
+                'layanan' => Layanan::where('user_id', $user_id)->paginate('10'),
+                'content' => 'admin/layanan/index'
+            ];
+            return view('admin/layouts/wrapper', $data);
+        } else {
+            Alert::error('Oops..', 'Akun mitra anda belum aktif. lengkapi profil terlebih dahulu');
+            return redirect('admin/profil');
+        }
     }
 
     /**

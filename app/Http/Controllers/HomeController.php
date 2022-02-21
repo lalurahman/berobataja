@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,24 +11,29 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        // return view('pages.home');
+        $data = [
+            'service'   => Service::limit(4)->get(),
+            'content'  => 'home/home/index'
+        ];
+        return view('home/layouts/wrapper', $data);
     }
 
-    public function mitra()
+    public function service()
     {
-        $mitra = User::with('mitra_category')->where('roles', 'mitra')->get();
-        return view('pages.mitra', [
-            'mitra' => $mitra
-        ]);
+        // return view('pages.home');
+        $data = [
+            'service'   => Service::paginate(12),
+            'content'  => 'home/home/service'
+        ];
+        return view('home/layouts/wrapper', $data);
     }
-
-    public function profil_mitra($username)
+    function detail_service($id)
     {
-        $mitra = User::with('mitra_category')->where('username', $username)->firstOrFail();
-        $layanan = Layanan::with('user')->where('user_id', $mitra->id)->get();
-        return view('pages.profil-mitra', [
-            'mitra' => $mitra,
-            'layanan' => $layanan
-        ]);
+        $data = [
+            'service'   => Service::find($id),
+            'content'  => 'home/home/detail_service'
+        ];
+        return view('home/layouts/wrapper', $data);
     }
 }

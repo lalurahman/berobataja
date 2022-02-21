@@ -132,59 +132,30 @@
 			<div class="row clearfix">
 				
 				<!-- Service Block Two -->
+				@foreach ($service as $item)
+						
 				<div class="service-block-two col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="number-box">
-							<div class="number">01</div>
+							<div class="number">{{$loop->iteration}}</div>
 						</div>
-						<h4><a href="service-detail.html">Physical therapy</a></h4>
-						<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re behold had seed.</div>
+						<h4><a href="/service/{{$item->id}}">{{$item->name}}</a></h4>
+						<div class="text">{{$item->desc}}</div>
 					</div>
 				</div>
 				
-				<!-- Service Block Two -->
-				<div class="service-block-two col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box">
-						<div class="number-box">
-							<div class="number">02</div>
-						</div>
-						<h4><a href="service-detail.html">Pediatric Services</a></h4>
-						<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re behold had seed.</div>
-					</div>
-				</div>
-				
-				<!-- Service Block Two -->
-				<div class="service-block-two col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box">
-						<div class="number-box">
-							<div class="number">03</div>
-						</div>
-						<h4><a href="service-detail.html">Diagnostic Center</a></h4>
-						<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re behold had seed.</div>
-					</div>
-				</div>
-				
-				<!-- Service Block Two -->
-				<div class="service-block-two col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box">
-						<div class="number-box">
-							<div class="number">04</div>
-						</div>
-						<h4><a href="service-detail.html">Healthcare Center</a></h4>
-						<div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re behold had seed.</div>
-					</div>
-				</div>
+				@endforeach
 				
 			</div>
 			
 			<div class="btn-box text-center">
-				<a href="service.html" class="theme-btn btn-style-six"><span class="txt">Lihat Semua Layanan</span></a>
+				<a href="/service" class="theme-btn btn-style-six"><span class="txt">Lihat Semua Layanan</span></a>
 			</div>
 			
 		</div>
 	</section>
 	<!-- End Services Section Three -->
-	
+
 	<!-- Team Section / Style Three -->
 	<section class="team-section style-three d-none">
 		<div class="auto-container">

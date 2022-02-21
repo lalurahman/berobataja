@@ -27,36 +27,36 @@
           @csrf
           <div class="form-group">
             <label for="">Nama Lengkap</label>
-            <input type="text" value="{{$mitra->fullname}}" name="fullname" required class="form-control">
+            <input type="text" value="{{$user->fullname}}" name="fullname" required class="form-control">
           </div>
 
           <div class="form-group">
             <label for="">Gender</label>
             <select name="gender" id="" class="form-control">
               <option value="">-- Gender --</option>
-              <option value="Laki-laki"{{$mitra->gender == 'Laki-laki' ? 'selected' : ''}}>Laki-laki</option>
-              <option value="Perempuan" {{$mitra->gender == 'Perempuan' ? 'selected' : ''}}>Perempuan</option>
+              <option value="Laki-laki"{{$user->gender == 'Laki-laki' ? 'selected' : ''}}>Laki-laki</option>
+              <option value="Perempuan" {{$user->gender == 'Perempuan' ? 'selected' : ''}}>Perempuan</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="">Alamat</label>
-            <input type="text" value="{{$mitra->alamat}}" name="alamat" placeholder="Alamat" required class="form-control">
+            <input type="text" value="{{$user->alamat}}" name="alamat" placeholder="Alamat" required class="form-control">
           </div>
 
           <div class="form-group">
             <label for="">Kota</label>
-            <input type="text" value="{{$mitra->kota}}" name="kota" placeholder="Kota" required class="form-control">
+            <input type="text" value="{{$user->kota}}" name="kota" placeholder="Kota" required class="form-control">
           </div>
 
            <div class="form-group">
             <label for="">No Hp</label>
-            <input type="text" value="{{$mitra->nohp}}" name="nohp" placeholder="nohp" required class="form-control">
+            <input type="text" value="{{$user->nohp}}" name="nohp" placeholder="nohp" required class="form-control">
           </div>
 
           <div class="form-group">
             <label for="">About</label>
-            <input type="text" value="{{$mitra->about}}" name="about" placeholder="Tentang" required class="form-control">
+            <input type="text" value="{{$user->about}}" name="about" placeholder="Tentang" required class="form-control">
           </div>
 
            <div class="modal-footer justify-content-between">

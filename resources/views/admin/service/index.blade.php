@@ -1,6 +1,9 @@
+<div class="row">
+  <div class="col-12">
+
 <div class="card">
 <div class="card-body">
-  <a href="/admin/user/create" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
+  <a href="/admin/service/create" class="btn btn-primary mb-3"><i class="fa fa-plus"></i> Tambah</a>
 
   <div class="float-right">
     <form action="" method="get">
@@ -8,7 +11,7 @@
         <input type="text" name="cari" class="form-control" placeholder="Cari..">
         <span class="input-group-append">
           <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i></button>
-          <a href="/admin/user" class="btn btn-info btn-flat tombol-hapus"><i class="fa fa-sync-alt"></i></a>
+          <a href="/admin/service" class="btn btn-info btn-flat"><i class="fa fa-sync-alt"></i></a>
         </span>
       </div>
       </form>
@@ -16,20 +19,20 @@
 <table id="example1" class="table table-striped">
   <thead>
     <tr>
-      <th>No</th>
-      <th>Nama</th>
-      <th>Role</th>
-      <th>Action</th>
+      <th width="100px">No</th>
+      <th>Topik</th>
+      <th>Deskripsi</th>
+      <th width="150px">Action</th>
     </tr>
   </thead>
 
   <tbody>
-    @foreach ($user as $row)
+    @foreach ($service as $row)
         
     <tr>
       <td width="50px">{{$loop->iteration}}</td>
-      <td><a href="/admin/user/{{$row->id}}"><b>{{$row->username}}</b></a> <br> {{ $row->email}} </td>
-      <td>{{$row->role}}</td>
+      <td><b>{{$row->name}}</b> </td>
+      <td>{{$row->desc}}</td>
       <td>
         <div class="btn-group">
             <button type="button" class="btn btn-primary"><i class="fa fa-cogs"></i></button>
@@ -37,13 +40,12 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu" role="menu" x-placement="bottom-start">
-              <a class="dropdown-item" href="/admin/user/is_active?user_id={{$row->id}}&boolean={{$row->is_active == 0 ? '1' : '0'}}"><i class="fa fa-power-off"></i> {{$row->is_active == 0 ? 'Aktifkan' : 'Nonaktifkan'}}</a>
-              <a class="dropdown-item" href="/admin/user/{{$row->id}}/edit"><i class="fa fa-edit"></i> Edit</a>
+              <a class="dropdown-item" href="/admin/service/{{$row->id}}/edit"><i class="fa fa-edit"></i> Edit</a>
                 <div class="dropdown-divider"></div>
-                <form action="/admin/user/{{$row->id}}" method="post" class="tombol-hapus">
+                <form action="/admin/service/{{$row->id}}" method="post" id="form-delete" class="tombol-hapus">
                   @method('delete')
                   @csrf
-                  <button type="submit" class="dropdown-item"><i class="fa fa-trash"></i> Hapus</button>
+                  <button type="submit" id="delete" class="dropdown-item"><i class="fa fa-trash"></i> Hapus</button>
                 </form>
             </div>
           </div>
@@ -56,10 +58,14 @@
 </table>
 
   <div class="float-right">
-    {{$user->links()}}
+    {{$service->links()}}
   </div>
 </div>
 </div>
+
+  </div>
+</div>
+
 <!-- /.card-body -->
 
 

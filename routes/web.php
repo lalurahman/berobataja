@@ -15,7 +15,10 @@ use App\Http\Controllers\AdminCategoryPostController;
 use App\Http\Controllers\AdminConfigurationController;
 use App\Http\Controllers\AdminDokumenController;
 use App\Http\Controllers\AdminGambarController;
+use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\AdminMouController;
+// use App\Http\Controllers\AdminServiceController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +31,16 @@ use App\Http\Controllers\AdminMouController;
 |
 */
 
-Route::get('/', function () {
-    $data = ['content'  => 'home/home/index'];
-    return view('home/layouts/wrapper', $data);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/service', [HomeController::class, 'service']);
+Route::get('/service/{id}', [HomeController::class, 'detail_service']);
+
+Route::prefix('/home')->group(function () {
+    Route::resource('/mitra', HomeMitraController::class);;
+    Route::resource('/layanan', HomeLayananController::class);;
 });
+
+
 
 Route::get('/login', [HomeAuthController::class, 'index'])->name('login');
 Route::post('/authenticate', [HomeAuthController::class, 'authenticate']);
@@ -63,12 +72,12 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         return view('admin/layouts/wrapper', $data);
     });
 
+    Route::get('/user/is_active', [AdminUserController::class, 'is_active']);
     Route::resource('/user', AdminUserController::class);
 
     Route::get('/konfigurasi', [AdminConfigurationController::class, 'index']);
     Route::put('/konfigurasi/update', [AdminConfigurationController::class, 'update']);
 
-    Route::get('/mitra/is_active', [AdminMitraController::class, 'is_active']);
     Route::resource('/mitra', AdminMitraController::class);
     Route::resource('/layanan', AdminLayananController::class);
     Route::resource('/gambar', AdminGambarController::class);
@@ -76,6 +85,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/dokumen', AdminDokumenController::class);
     Route::resource('/banner', AdminBannerController::class);
     Route::resource('/mou', AdminMouController::class);
+    Route::resource('/kategori', AdminServiceController::class);
 
 
     Route::get('/profil', [AdminProfileController::class, 'index']);
@@ -87,9 +97,4 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         Route::resource('/post', AdminPostController::class);
         Route::resource('/kategori', AdminCategoryPostController::class);
     });
-});
-
-Route::prefix('/home')->group(function () {
-    Route::resource('/mitra', HomeMitraController::class);;
-    Route::resource('/layanan', HomeLayananController::class);;
 });

@@ -12,17 +12,17 @@
 								<div class="image" style="height:150px">
 									<img src="/img/user.jpg" alt="" />
 								</div>
-								<div class="author-name">{{$mitra->fullname}}</div>
-								<div class="designation">{{$mitra->jenis}}</div>
+								<div class="author-name">{{$user->fullname}}</div>
+								<div class="designation">{{$user->jenis}}</div>
 								
 							</div>
 						</div>
 						
 						<h4>Contact</h4>
 						<ul class="info-list">
-							<li class="clearfix">Alamat:<span>{{$mitra->alamat}}</span></li>
-							<li class="clearfix">Email:<span>{{$mitra->user->email}}</span></li>
-							<li class="clearfix">Nomor HP:<span>{{$mitra->nohp}}</span></li>
+							<li class="clearfix">Alamat:<span>{{$user->alamat}}</span></li>
+							<li class="clearfix">Email:<span>{{$user->user->email}}</span></li>
+							<li class="clearfix">Nomor HP:<span>{{$user->nohp}}</span></li>
 						</ul>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 				<div class="content-column col-lg-7 col-md-12 col-sm-12">
 					<div class="inner-column">
 						<h2>About</h2>
-						<p>{{$mitra->about}}</p>
+						<p>{{$user->about}}</p>
 						<div class="image">
 							<div class="">
 								

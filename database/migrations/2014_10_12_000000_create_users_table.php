@@ -15,13 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mitra_id');
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('fullname')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('nohp')->nullable();
+            $table->string('foto')->nullable();
+            $table->text('about')->nullable();
+            $table->enum('jenis', ['Perawat', 'Dokter', 'Non-medis'])->nullable();
+            $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable();
             $table->boolean('is_active')->default(false);
-            $table->boolean('is_mou_false')->default(false);
+            $table->boolean('is_mou_mitra')->default(false);
             $table->enum('role', ['admin', 'user', 'mitra']);
             $table->rememberToken();
             $table->timestamps();

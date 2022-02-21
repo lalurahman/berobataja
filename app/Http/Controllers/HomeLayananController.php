@@ -23,10 +23,10 @@ class HomeLayananController extends Controller
             if ($filter == 'name') {
                 $layanan = Layanan::where('name', 'like', '%' . $value . '%')->latest()->paginate(10);
             } else if ($filter == 'kota') {
-                $layanan = Layanan::whereHas('mitra', function ($query) {
+                $layanan = Layanan::whereHas('user', function ($query) {
                     //ubah variable makassar
-                    $query->where('mitras.kota', request('value'));
-                })->with('mitra')->paginate(10);
+                    $query->where('users.kota', request('value'));
+                })->with('user')->paginate(10);
             }
         }
         $data = [
@@ -67,7 +67,7 @@ class HomeLayananController extends Controller
     {
         //
         $data = [
-            'layanan'  => Layanan::with('mitra')->find($id),
+            'layanan'  => Layanan::with('user')->find($id),
             'content'  => 'home/layanan/detail'
         ];
         return view('home/layouts/wrapper', $data);

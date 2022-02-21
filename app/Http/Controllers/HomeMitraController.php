@@ -16,12 +16,8 @@ class HomeMitraController extends Controller
     public function index()
     {
         //
-        // $user = User::with(['mitrasu'])->where('role', 'mitra')->where('is_active', '1')->get();
-        // dd($user);
-
-        $mitra = Mitra::with('user')->where('is_active', '1')->get();
-        // dd($mitra);
-        // $user = User::where('role', 'mitra')->where('is_active', '1')->get();
+        $role = request('role');
+        $mitra = User::where('role', $role)->latest();
         $data = [
             'mitra'     => $mitra,
             'content'  => 'home/mitra/index'

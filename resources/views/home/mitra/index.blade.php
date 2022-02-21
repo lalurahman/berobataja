@@ -6,9 +6,9 @@
 			</div>
 	</div>
 	{{-- @dd($user) --}}
-	@if (count($mitra) <= 0)
+	{{-- @if (count($mitra) <= 0)
 		<div class="alert alert-danger">	Belum ada mitra</div>
-	@else
+	@else --}}
 			{{-- @dd($mitra) --}}
 	<div class="row">
 		<!-- Team Block -->
@@ -33,7 +33,7 @@
 		</div>
 		@endforeach
 
-	@endif
+	{{-- @endif --}}
 
 
  </div>
