@@ -46,7 +46,7 @@
           </li>
 
             <li class="nav-item">
-            <a href="/admin/kategori" class="nav-link {{Request::is('admin/kategori*') ? 'active' : ''}}">
+            <a href="/admin/service" class="nav-link {{Request::is('admin/service*') ? 'active' : ''}}">
             <i class="nav-icon fas fa-list"></i>
               <p>
                 Kategori

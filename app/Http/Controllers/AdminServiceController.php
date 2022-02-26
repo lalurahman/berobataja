@@ -20,8 +20,8 @@ class AdminServiceController extends Controller
         $user_id = auth()->user()->id;
         $data = [
             'title'   => 'Manajemen Service',
-            'kategori' => Service::paginate('10'),
-            'content' => 'admin/layanan_kat/index'
+            'service' => Service::paginate('10'),
+            'content' => 'admin/service/index'
         ];
         return view('admin/layouts/wrapper', $data);
     }
@@ -36,7 +36,7 @@ class AdminServiceController extends Controller
         //
         $data = [
             'title'   => 'Manajemen Service',
-            'content' => 'admin/layanan_kat/add'
+            'content' => 'admin/service/add'
         ];
         return view('admin/layouts/wrapper', $data);
     }
@@ -56,7 +56,7 @@ class AdminServiceController extends Controller
         ]);
         Service::create($data);
         Alert::success('Sukses', 'Service telah ditambahkan');
-        return redirect('/admin/kategori');
+        return redirect('/admin/service');
     }
 
     /**
@@ -82,8 +82,8 @@ class AdminServiceController extends Controller
         //
         $data = [
             'title'   => 'Manajemen Service',
-            'kategori' => Service::find($id),
-            'content' => 'admin/layanan_kat/add'
+            'service' => Service::find($id),
+            'content' => 'admin/service/add'
         ];
         return view('admin/layouts/wrapper', $data);
     }
@@ -98,14 +98,14 @@ class AdminServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $layanan_kat = Service::find($id);
+        $service = Service::find($id);
         $data = $request->validate([
             'name'       => 'required|min:3',
             'desc'        => 'required',
         ]);
-        $layanan_kat->save($data);
+        $service->save($data);
         Alert::success('Sukses', 'Service telah diubah');
-        return redirect('/admin/kategori');
+        return redirect('/admin/service');
     }
 
     /**
@@ -117,9 +117,9 @@ class AdminServiceController extends Controller
     public function destroy($id)
     {
         //
-        $layanan_kat = Service::find($id);
-        $layanan_kat->delete();
+        $service = Service::find($id);
+        $service->delete();
         Alert::success('Sukses', 'Service telah dihapus');
-        return redirect('/admin/kategori');
+        return redirect('/admin/service');
     }
 }

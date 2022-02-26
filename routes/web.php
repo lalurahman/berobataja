@@ -85,7 +85,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/dokumen', AdminDokumenController::class);
     Route::resource('/banner', AdminBannerController::class);
     Route::resource('/mou', AdminMouController::class);
-    Route::resource('/kategori', AdminServiceController::class);
+    Route::resource('/service', AdminServiceController::class);
 
 
     Route::get('/profil', [AdminProfileController::class, 'index']);
