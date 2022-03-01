@@ -28,7 +28,8 @@ class AdminConfigurationController extends Controller
 
         $data = $request->validate([
             'app_name' => 'required|min:3',
-            'up_harga'  => 'required'
+            'up_harga'  => 'required',
+            'contact_admin'  => 'required'
         ]);
         $konfigurasi->update($data);
         Alert::success('Sukses', 'Konfigurasi telah diperbaharui');

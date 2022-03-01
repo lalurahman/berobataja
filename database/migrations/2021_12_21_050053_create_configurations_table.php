@@ -17,6 +17,7 @@ class CreateConfigurationsTable extends Migration
             $table->id();
             $table->string('app_name');
             $table->double('up_harga');
+            $table->double('contact_admin')->nullable();
             $table->timestamps();
         });
     }

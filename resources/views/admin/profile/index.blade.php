@@ -24,9 +24,14 @@
           <h5>{{isset($user) ? $user->alamat : '-'}}</h5> </h5>
         </div>
 
+        {{-- <div class="pb-2">
+          <div for="" class="text-primary">Provinsi</div>
+          <h5>{{isset($user) ? $user->province->id : '-'}}</h5> </h5>
+        </div> --}}
+
          <div class="pb-2">
           <div for="" class="text-primary">Kota</div>
-          <h5>{{isset($user) ? $user->kota : '-'}}</h5> </h5>
+          <h5>{{isset($user) ? $user->regency->name : '-'}}</h5> </h5>
         </div>
       
          <div class="pb-2">

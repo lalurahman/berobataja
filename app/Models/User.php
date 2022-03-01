@@ -44,6 +44,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    function province()
+    {
+        return $this->belongsTo(Province::class, 'province');
+    }
+
+    function regency()
+    {
+        return $this->belongsTo(Regency::class, 'city');
+    }
+
     function mitrasu()
     {
         return $this->belongsTo(Mitra::class, 'user_id');

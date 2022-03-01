@@ -18,7 +18,7 @@
           </div>
 
 
-           <div class="form-group">
+          <div class="form-group">
             <label for="">Up Harga</label>
             <input type="text" class="form-control  @error('up_harga') is-invalid @enderror"  name="up_harga"  value="{{isset($konfigurasi) ? $konfigurasi->up_harga : old('up_harga')}}" placeholder="Nama">
              @error('up_harga')
@@ -28,6 +28,16 @@
              @enderror
           </div>
 
+
+          <div class="form-group">
+            <label for="">WA Admin</label>
+            <input type="text" class="form-control  @error('contact_admin') is-invalid @enderror"  name="contact_admin"  value="{{isset($konfigurasi) ? $konfigurasi->contact_admin : old('contact_admin')}}" placeholder="Nama">
+             @error('contact_admin')
+                <div class="invalid-feedback">
+                  {{$message}}
+                </div>
+             @enderror
+          </div>
        
 
           <a href="/admin/konfigurasi" class="btn btn-info "><i class="fa fa-arrow-left"></i> Kembali</a>

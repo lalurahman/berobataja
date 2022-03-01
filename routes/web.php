@@ -88,6 +88,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('/service', AdminServiceController::class);
 
 
+    Route::get('/get-regency/{province_id?}', [AdminProfileController::class, 'getCity']);
     Route::get('/profil', [AdminProfileController::class, 'index']);
     Route::put('/profil/update/{id}', [AdminProfileController::class, 'update']);
     Route::get('/profil/is_mou_mitra', [AdminProfileController::class, 'is_mou_mitra']);

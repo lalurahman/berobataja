@@ -44,10 +44,35 @@
             <input type="text" value="{{$user->alamat}}" name="alamat" placeholder="Alamat" required class="form-control">
           </div>
 
-          <div class="form-group">
+          <div class="row">
+          <div class="col-12 col-md-6">
+            <label for="province" class="form-label">Provinsi</label>
+            <select class="form-control" id="province" name="province" required>
+              <option value="" selected>Pilih Provinsi</option>
+              @foreach($provinces as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+              @endforeach
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid province.
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="city" class="form-label">Kota/Kabupaten</label>
+            <select class="form-control" id="city" name="city" disabled required>
+              <option value="">Pilih Kota/Kabupaten</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+          </div>
+
+          {{-- <div class="form-group">
             <label for="">Kota</label>
             <input type="text" value="{{$user->kota}}" name="kota" placeholder="Kota" required class="form-control">
-          </div>
+          </div> --}}
 
            <div class="form-group">
             <label for="">No Hp</label>
@@ -73,3 +98,34 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#province option[value=""]').prop('selected',true);
+    $('#city option[value!=""]').remove();
+
+    province = $('#province')
+    province.on('change', function() {
+        $this = $(this)
+        city = $('#city')
+
+        if ($this.val() !== '') {
+            $.ajax({
+                url: "{{url('/admin/get-regency')}}" +'/' +$this.val() , 
+                type: 'GET',
+                dataType: 'json',
+                success: function(response){
+                    if (response !== 'NOT OK') {
+                        city.removeAttr('disabled')
+                        city.html(response)
+                    }
+                }
+            });
+        } else {
+            city.prop('disabled', true)
+            city.find('option').val('').text('Pilih Kota/Kabupaten')
+        }
+    })  
+  });
+</script>
