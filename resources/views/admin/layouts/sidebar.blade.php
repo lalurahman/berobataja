@@ -35,7 +35,7 @@
             </a>
           </li>
           @endif --}}
-
+        @if (auth()->user()->role == 'mitra')
            <li class="nav-item">
             <a href="/admin/layanan" class="nav-link {{Request::is('admin/layanan*') ? 'active' : ''}}">
             <i class="nav-icon fas fa-ambulance"></i>
@@ -44,8 +44,14 @@
               </p>
             </a>
           </li>
+          @endif
 
-            <li class="nav-item">
+          
+          
+
+           @if (auth()->user()->role == 'admin')
+
+           <li class="nav-item">
             <a href="/admin/service" class="nav-link {{Request::is('admin/service*') ? 'active' : ''}}">
             <i class="nav-icon fas fa-list"></i>
               <p>
@@ -53,9 +59,8 @@
               </p>
             </a>
           </li>
-          
 
-           @if (auth()->user()->role == 'admin')
+
           <li class="nav-item {{Request::is('admin/posts*') ? 'menu-open' : ''}}">
             <a href="#" class="nav-link {{Request::is('admin/posts*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-newspaper"></i>

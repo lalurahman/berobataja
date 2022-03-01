@@ -112,7 +112,7 @@
 
         if ($this.val() !== '') {
             $.ajax({
-                url: "{{url('/admin/get-regency')}}" +'/' +$this.val() , 
+                url: "{{url('/get-regency')}}" +'/' +$this.val() , 
                 type: 'GET',
                 dataType: 'json',
                 success: function(response){

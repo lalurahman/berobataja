@@ -32,7 +32,7 @@
     <tr>
       <td width="50px">{{$loop->iteration}}</td>
       <td><b>{{$row->name}}</b> </td>
-      <td>{{$row->desc}}</td>
+      <td>{{$row->excerpt}}</td>
       <td>
         <div class="btn-group">
             <button type="button" class="btn btn-primary"><i class="fa fa-cogs"></i></button>

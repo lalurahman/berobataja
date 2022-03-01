@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -54,6 +55,8 @@ class AdminServiceController extends Controller
             'name'       => 'required|min:3',
             'desc'        => 'required',
         ]);
+        $data['excerpt']   = Str::limit(strip_tags($request->desc), 20);
+
         Service::create($data);
         Alert::success('Sukses', 'Service telah ditambahkan');
         return redirect('/admin/service');
@@ -103,6 +106,7 @@ class AdminServiceController extends Controller
             'name'       => 'required|min:3',
             'desc'        => 'required',
         ]);
+        $data['excerpt']   = Str::limit(strip_tags($request->desc), 20);
         $service->save($data);
         Alert::success('Sukses', 'Service telah diubah');
         return redirect('/admin/service');

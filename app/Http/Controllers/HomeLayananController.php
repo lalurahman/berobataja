@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
 class HomeLayananController extends Controller
@@ -17,20 +18,33 @@ class HomeLayananController extends Controller
         //
 
         $layanan = Layanan::paginate(10);
-        $value = request('value');
-        $filter = request('filter');
-        if ($filter && $value) {
-            if ($filter == 'name') {
-                $layanan = Layanan::where('name', 'like', '%' . $value . '%')->latest()->paginate(10);
-            } else if ($filter == 'kota') {
-                $layanan = Layanan::whereHas('user', function ($query) {
+        // $value = request('value');
+        // $filter = request('filter');
+        // if ($filter && $value) {
+        //     if ($filter == 'name') {
+        //         $layanan = Layanan::where('name', 'like', '%' . $value . '%')->latest()->paginate(10);
+        //     } else if ($filter == 'kota') {
+        //         $layanan = Layanan::whereHas('user', function ($query) {
+        //             //ubah variable makassar
+        //             $query->where('users.kota', request('value'));
+        //         })->with('user')->paginate(10);
+        //     }
+        // }
+        $city = request('city');
+
+        if ($city) {
+            $layanan = Layanan::whereHas(
+                'user',
+                function ($query) {
                     //ubah variable makassar
-                    $query->where('users.kota', request('value'));
-                })->with('user')->paginate(10);
-            }
+                    $query->where('users.city', request('city'));
+                }
+            )->with('user')->paginate(10);
         }
+
         $data = [
             'layanan'   => $layanan,
+            'provinces'   => Province::get(),
             'content'  => 'home/layanan/index'
         ];
         return view('home/layouts/wrapper', $data);
