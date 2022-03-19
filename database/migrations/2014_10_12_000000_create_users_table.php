@@ -26,11 +26,11 @@ class CreateUsersTable extends Migration
             $table->string('nohp')->nullable();
             $table->string('foto')->nullable();
             $table->text('about')->nullable();
-            $table->enum('jenis', ['Perawat', 'Dokter', 'Non-medis'])->nullable();
             $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable();
             $table->boolean('is_active')->default(false);
             $table->boolean('is_mou_mitra')->default(false);
             $table->enum('role', ['admin', 'user', 'mitra']);
+            $table->enum('as_mitra', ['Perawat', 'Dokter', 'Non-medis'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

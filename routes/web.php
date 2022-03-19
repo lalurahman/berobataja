@@ -89,6 +89,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
 
     Route::get('/profil', [AdminProfileController::class, 'index']);
+    Route::get('/profil/edit', [AdminProfileController::class, 'edit']);
     Route::put('/profil/update/{id}', [AdminProfileController::class, 'update']);
     Route::get('/profil/is_mou_mitra', [AdminProfileController::class, 'is_mou_mitra']);
 
