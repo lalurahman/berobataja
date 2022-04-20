@@ -18,6 +18,7 @@ class CreateLayanansTable extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('desc');
+            $table->string('cover')->nullable();
             $table->double('price_real');
             $table->double('price_disc');
             $table->timestamps();

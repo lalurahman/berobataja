@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Layanan;
 use App\Models\Service;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Configuration;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,17 @@ class HomeController extends Controller
         ];
         return view('home/layouts/wrapper', $data);
     }
+
+    public function about()
+    {
+        // return view('pages.home');
+        $data = [
+            'about'   =>  Configuration::find('1')->first(),
+            'content'  => 'home/home/about'
+        ];
+        return view('home/layouts/wrapper', $data);
+    }
+
     function detail_service($id)
     {
         $data = [

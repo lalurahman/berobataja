@@ -16,8 +16,8 @@
 					
 						<!-- Info List -->
                         <ul class="info-list">
-							<li><span>Call Us: </span><a href="tel:+123-456-7890"> +1 (800) 123-4567</a></li>
-							<li><span>Support:</span><a href="mailto:info@yourcompany.com"> info@yourcompany.com</a></li>
+							<li><span>Call Us: </span><a href="tel:{{$cnfgrs->contact_admin}}"> {{$cnfgrs->contact_admin}}</a></li>
+							<li><span>Support:</span><a href="mailto:{{$cnfgrs->email}}"> {{$cnfgrs->email}}</a></li>
 						</ul>
 						
                     </div>
@@ -41,7 +41,7 @@
             	<div class="clearfix">
                 	
                 	<div class="pull-left logo-box mt-3">
-                    	<div class="logo"><a href="index.html"><img src="/fe/images/logo.jpeg" alt="" title="" width="60" class="rounded-circle"></a></div>
+                    	<div class="logo"><a href="/"><img src="/fe/images/logo.jpeg" alt="" title="" width="60" class="rounded-circle"></a></div>
                     </div>
 					
                    	<div class="nav-outer clearfix">

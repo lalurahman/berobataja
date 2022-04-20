@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Configuration;
+use App\Models\Layanan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,8 +35,36 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Configuration::create([
-            'app_name' => 'KTC FW',
-            'up_harga'  => 2000
+            'app_name' => 'Berobataja',
+            'up_harga'  => 2000,
+            'contact_admin' => '000000',
+            'email' => 'email@email.com',
+            'about_us'  => 'lorem ipsum dolor sit amet',
+            'excerpt_about' => 'lorem ipsum dolor sit amet',
+        ]);
+
+        Layanan::create([
+            'name'      => 'Terapy',
+            'desc'      => 'lorem ipsum dolor sit amet',
+            'excerpt'   => '-'
+        ]);
+
+        Layanan::create([
+            'name'      => 'Psicotheraphy',
+            'desc'      => 'lorem ipsum dolor sit amet',
+            'excerpt'   => '-'
+        ]);
+
+        Layanan::create([
+            'name'      => 'Pembersihan Luka',
+            'desc'      => 'lorem ipsum dolor sit amet',
+            'excerpt'   => '-'
+        ]);
+
+        Layanan::create([
+            'name'      => 'Gigi',
+            'desc'      => 'lorem ipsum dolor sit amet',
+            'excerpt'   => '-'
         ]);
     }
 }

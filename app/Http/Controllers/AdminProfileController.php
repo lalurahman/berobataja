@@ -102,36 +102,31 @@ class AdminProfileController extends Controller
         return response()->json($cities);
     }
 
+    //TODO
     public function UploadFoto(Request $request)
     {
-        $dokumen = Dokumen::find($id);
-        $data = $request->validate([
-            'name'              => 'required|min:3',
-            'desc'              => 'required|min:3',
-            'type'              => 'required',
-            // 'gambar'             => 'mimes:jpeg,jpg,png,JPEG,JPG,PNG',
-        ]);
-        // die('masuk');
-        $data['user_id'] = auth()->user()->id;
-        if ($request->hasFile('gambar')) {
 
-            if ($dokumen->gambar != '') {
-                unlink($dokumen->gambar);
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        if ($request->hasFile('foto')) {
+
+            if ($user->foto != '') {
+                unlink($user->foto);
             }
 
 
-            $gambar = $request->file('gambar');
-            $file_name = time() . "_" . $gambar->getClientOriginalName();
+            $foto = $request->file('foto');
+            $file_name = time() . "_" . $foto->getClientOriginalName();
 
             $storage = 'uploads/images/';
-            $gambar->move($storage, $file_name);
-            $data['gambar'] = $storage . $file_name;
+            $foto->move($storage, $file_name);
+            $data['foto'] = $storage . $file_name;
         } else {
-            $data['gambar'] = $dokumen->gambar;
+            $data['foto'] = $user->foto;
         }
 
-        $dokumen->update($data);
+        $user->update($data);
         Alert::success('Sukses', 'Dokumen telah diubah');
-        return redirect('/admin/dokumen?type=' . $data['type']);
+        return redirect('/admin/profil');
     }
 }

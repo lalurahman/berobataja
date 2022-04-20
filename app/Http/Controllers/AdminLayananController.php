@@ -65,8 +65,21 @@ class AdminLayananController extends Controller
             'desc'              => 'required',
         ]);
         $data['user_id']    = auth()->user()->id;
-        $data['price_real'] = $request->price_real + $konfigurasi->up_harga;
-        $data['price_disc'] = $request->price_disc + $konfigurasi->up_harga;
+        $data['price_real'] = $request->price_real;
+        $data['price_disc'] = $request->price_disc;
+
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover');
+            $file_name = time() . "_" . $cover->getClientOriginalName();
+
+            $storage = 'uploads/images/';
+            $cover->move($storage, $file_name);
+            $data['cover'] = $storage . $file_name;
+        } else {
+            $data['cover'] = NULL;
+        }
+
+
         Layanan::create($data);
         Alert::success('Sukses', 'Layanan telah ditambahkan');
         return redirect('/admin/layanan');
@@ -119,7 +132,27 @@ class AdminLayananController extends Controller
             'desc'              => 'required',
         ]);
         $data['user_id']    = auth()->user()->id;
-        $layanan->save($data);
+
+        if ($request->hasFile('cover')) {
+
+            if ($layanan->cover != '') {
+                unlink($layanan->cover);
+            }
+
+
+            $cover = $request->file('cover');
+            $file_name = time() . "_" . $cover->getClientOriginalName();
+
+            $storage = 'uploads/images/';
+            $cover->move($storage, $file_name);
+            $data['cover'] = $storage . $file_name;
+        } else {
+            $data['cover'] = $layanan->cover;
+        }
+
+        // dd($request->all());
+
+        $layanan->update($data);
         Alert::success('Sukses', 'Layanan telah diubah');
         return redirect('/admin/layanan');
     }

@@ -100,7 +100,7 @@
 							</div>
 							
 							<div class="form-group col-lg-12 col-md-12 col-sm-12">
-								<div class="users">Sudah punya akun ? <a href="login.html">Masuk</a></div>
+								<div class="users">Sudah punya akun ? <a href="/login">Masuk</a></div>
 							</div>
 							
 						</div>

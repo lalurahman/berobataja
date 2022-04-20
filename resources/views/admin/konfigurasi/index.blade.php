@@ -38,6 +38,16 @@
                 </div>
              @enderror
           </div>
+
+           <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control  @error('email') is-invalid @enderror"  name="email"  value="{{isset($konfigurasi) ? $konfigurasi->email : old('email')}}" placeholder="Email">
+             @error('email')
+                <div class="invalid-feedback">
+                  {{$message}}
+                </div>
+             @enderror
+          </div>
        
 
           <a href="/admin/konfigurasi" class="btn btn-info "><i class="fa fa-arrow-left"></i> Kembali</a>

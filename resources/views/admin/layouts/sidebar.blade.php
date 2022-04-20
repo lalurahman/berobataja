@@ -170,6 +170,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="/admin/about" class="nav-link {{Request::is('admin/about*') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                About
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="/admin/konfigurasi" class="nav-link {{Request::is('admin/konfigurasi*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-cogs"></i>

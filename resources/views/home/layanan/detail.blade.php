@@ -9,7 +9,7 @@
 						<h2>{{$layanan->name}}</h2>
 						
 						<div class="image">
-							<img src="images/resource/department-9.jpg" alt="" />
+							<img src="/{{$layanan->cover}}" alt="" />
 						</div>
 							{{$layanan->desc}}
 						</div>
@@ -22,10 +22,10 @@
 						<div class="info-box">
 							<div class="box-inner">
 								<div class="image" style="height:150px">
-									<img src="/img/user.jpg" alt="" />
+									<img src="/{{$layanan->user->foto}}" alt="" />
 								</div>
 								<div class="author-name">Nama</div>
-								<div class="designation">{{$layanan->jenis}}</div>
+								<div class="designation">{{$layanan->user->fullname}}</div>
 							</div>
 						</div>
 						
@@ -34,9 +34,9 @@
 								<del>{{format_rupiah($layanan->price_real)}}-</del>
 							</small> 
 							 <br> 
-							 Harga : {{format_rupiah($layanan->price_dic)}} 
+							 Harga : {{format_rupiah($layanan->price_disc)}} 
 						</h4>
-						<a href="https://wa.me/085298730727?
+						<a href="https://wa.me/{{$cnfgrs->contact_admin}}?
 						text=Deskripsi Pemesanan : 
 						 Nama Laynan : {{$layanan->name}} %0a
 						 oleh : {{$layanan->user->fullname}}" target="blank" class="btn btn-success">Pesan Layanan</a>

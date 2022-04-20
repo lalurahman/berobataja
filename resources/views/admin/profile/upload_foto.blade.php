@@ -22,7 +22,7 @@
               </div>
           @endif
 
-        <form action="/admin/profil/update/{{auth()->user()->id}}" method="POST">
+        <form action="/admin/profil/UploadFoto" method="POST" enctype="multipart/form-data">
           @method('PUT')
           @csrf
           <div class="form-group">

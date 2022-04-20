@@ -45,11 +45,7 @@
                 @enderror
               </div>
 
-
-
-            </div>
-            <div class="col-6">
-               <div class="form-group">
+              <div class="form-group">
                 <label for="">Deskripsi</label>
                 <textarea class="form-control  @error('desc') is-invalid @enderror" id="summernote"  name="desc" placeholder="Deskripsi">{{isset($layanan) ? $layanan->desc : old('desc')}}</textarea>
                 @error('desc')
@@ -58,12 +54,30 @@
                     </div>
                 @enderror
               </div>
+
+
+
             </div>
+            <div class="col-6">
+               
+
+               <div class="form-group">
+                <label for="">Cover</label>
+                <input type="file" class="form-control  @error('cover') is-invalid @enderror"  name="cover" >
+                @error('cover')
+                    <div class="invalid-feedback">
+                      {{$message}}
+                    </div>
+                @enderror
+              </div>
+               @if (isset($layanan))
+                      <img src="/{{$layanan->cover}}" width="150px" class="py-3" alt="">
+                  @endif
+                  </div>
           </div>
           
          <a href="/admin/layanan" class="btn btn-info "><i class="fa fa-arrow-left"></i> Kembali</a>
          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-        
         </form>
       </div>
     </div>

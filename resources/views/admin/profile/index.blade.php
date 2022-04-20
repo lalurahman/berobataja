@@ -61,6 +61,12 @@
               
                 <img src="" alt="">
                 @include('admin/profile/upload_foto')
+<br>
+                @if ($user->foto != null)
+                  <img src="/{{$user->foto}}" width="150px" class="py-3" alt="">
+                
+                    
+                @endif
                 
               </div>
           </div>

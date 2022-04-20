@@ -18,6 +18,11 @@ class CreateConfigurationsTable extends Migration
             $table->string('app_name');
             $table->double('up_harga');
             $table->double('contact_admin')->nullable();
+            $table->string('email')->nullable();
+
+            $table->text('about_us')->nullable();
+            $table->string('cover_about')->nullable();
+            $table->text('excerpt_about')->nullable();
             $table->timestamps();
         });
     }

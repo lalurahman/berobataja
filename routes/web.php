@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeAuthController;
 use App\Http\Controllers\AdminAuthController;
@@ -34,6 +35,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/service', [HomeController::class, 'service']);
 Route::get('/service/{id}', [HomeController::class, 'detail_service']);
+Route::get('/about', [HomeController::class, 'about']);;
 
 Route::prefix('/home')->group(function () {
     Route::resource('/mitra', HomeMitraController::class);;
@@ -78,6 +80,9 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/konfigurasi', [AdminConfigurationController::class, 'index']);
     Route::put('/konfigurasi/update', [AdminConfigurationController::class, 'update']);
 
+    Route::get('/about', [AdminAboutUsController::class, 'index']);
+    Route::put('/about/update', [AdminAboutUsController::class, 'update']);
+
     Route::resource('/mitra', AdminMitraController::class);
     Route::resource('/layanan', AdminLayananController::class);
     Route::resource('/gambar', AdminGambarController::class);
@@ -89,6 +94,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
 
     Route::get('/profil', [AdminProfileController::class, 'index']);
+    Route::put('/profil/UploadFoto', [AdminProfileController::class, 'UploadFoto']);
     Route::get('/profil/edit', [AdminProfileController::class, 'edit']);
     Route::put('/profil/update/{id}', [AdminProfileController::class, 'update']);
     Route::get('/profil/is_mou_mitra', [AdminProfileController::class, 'is_mou_mitra']);
